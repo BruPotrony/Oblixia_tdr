@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oblixia | Corporate Obligations Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-wrap">
+        <div class="brand-mark">SL</div>
+        <div>
+          <p class="brand-name">Oblixia</p>
+          <p class="brand-subtitle">Corporate obligations</p>
+        </div>
+      </div>
+
+      <nav class="menu" aria-label="Main">
+        <button class="menu-link active" data-route="dashboard">Dashboard</button>
+        <button class="menu-link" data-route="timeline">Calendar / Timeline</button>
+        <button class="menu-link" data-route="library">Obligations Library</button>
+        <button class="menu-link" data-route="vault">Document Vault</button>
+        <button class="menu-link" data-route="team">Roles / Team</button>
+      </nav>
+
+      <div class="company-card">
+        <p class="company-label">Demo</p>
+        <h2>Ariadna Escobar Ros</h2>
+        <p>© 2026 Ariadna Escobar Ros</p>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSubtitle">Live overview of annual corporate obligations</p>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="notif-btn" id="notifToggle" aria-expanded="false" aria-controls="notifPanel" title="Notifications">
+            <span class="notif-icon">◌</span>
+            <span class="notif-count" id="notifCount">3</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="notifications-panel hidden" id="notifPanel" aria-label="Notifications">
+        <h3>Reminders / Notifications</h3>
+        <ul id="notifList"></ul>
+      </section>
+
+      <section class="view active" id="view-dashboard">
+        <div class="kpi-grid">
+          <article class="kpi-card" data-route="library" style="cursor: pointer;">
+            <p>Pending obligations</p>
+            <h3>04</h3>
+            <span>Across 2026 cycle</span>
+          </article>
+          <article class="kpi-card">
+            <p>Blocked tasks</p>
+            <h3>01</h3>
+            <span>Needs administrator action</span>
+          </article>
+          <article class="kpi-card alert">
+            <p>High risk item</p>
+            <h3>Annual accounts deposit 2026</h3>
+            <span>Missing signed minutes</span>
+          </article>
+        </div>
+
+        <article class="spotlight-card">
+          <h2>Critical alert</h2>
+          <p>
+            The annual accounts deposit is blocked because the minutes have not been signed.
+          </p>
+          <div class="spotlight-actions">
+            <button class="btn btn-primary" data-route="library">Go to obligation</button>
+            <button class="btn btn-secondary" data-route="wizard">Open workflow</button>
+          </div>
+        </article>
+
+      </section>
+
+      <section class="view" id="view-timeline">
+        <article class="section-card">
+          <h2>Calendar / Timeline</h2>
+          <p>Calendar view with events on exact days, plus process sequence below.</p>
+          <div class="calendar-wrap">
+            <div class="calendar-head">
+              <h3 id="calendarMonthLabel">July 2025</h3>
+              <p>Annual accounts deposit 2026</p>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+          </div>
+
+          <h3 class="subsection-title">Process sequence</h3>
+          <ol class="timeline" id="timelineList"></ol>
+        </article>
+      </section>
+
+      <section class="view" id="view-library">
+        <article class="section-card">
+          <p>Catalog of recurring corporate obligations.</p>
+          <div class="obligation-grid" id="libraryGrid"></div>
+        </article>
+      </section>
+
+      <section class="view" id="view-obligation">
+        <article class="section-card">
+          <h2>Obligation Detail</h2>
+          <div class="obligation-header">
+            <div>
+              <p class="chip chip-risk">High risk</p>
+              <h3>Annual accounts deposit 2026</h3>
+            </div>
+            <button class="btn btn-primary" id="startWorkflowBtn">Start workflow</button>
+          </div>
+
+          <div class="detail-grid">
+            <article>
+              <h4>Què és aquesta obligació?</h4>
+              <p>És el procés pel qual l’empresa ha de presentar els seus comptes anuals al Registre Mercantil perquè quedin registrats oficialment.</p>
+            </article>
+            <article>
+              <h4>Quan aplica?</h4>
+              <p>Aplica cada any per a totes les empreses (S.L.) un cop s’han tancat i aprovat els comptes de l’exercici anterior.</p>
+            </article>
+            <article>
+              <h4>Deadline</h4>
+              <p>Els comptes s’han de dipositar dins del mes següent a la seva aprovació en junta general.</p>
+            </article>
+            <article>
+              <h4>Qui hi participa?</h4>
+              <p>Administrator, back office i assessor extern (gestoria).</p>
+            </article>
+            <article>
+              <h4>Documents necessaris</h4>
+              <p>Comptes anuals, acta signada, certificat d’aprovació i documentació de presentació al Registre.</p>
+            </article>
+            <article>
+              <h4>Risc si no es presenta</h4>
+              <p>Bloqueig d’altres tràmits al Registre Mercantil i possibles sancions econòmiques.</p>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section class="view" id="view-wizard">
+        <article class="section-card">
+          <h2>Workflow: Annual accounts deposit 2026</h2>
+          <p class="workflow-alert">Process currently blocked: missing signature for meeting minutes.</p>
+          <div id="workflowList" class="workflow-list"></div>
+        </article>
+      </section>
+
+      <section class="view" id="view-vault">
+        <article class="section-card">
+          <h2>Document Vault</h2>
+          <p>Repository of uploaded and missing documents by obligation and year.</p>
+          <div class="vault-group">
+            <h3>Annual accounts deposit 2026</h3>
+            <ul id="vaultList"></ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="view" id="view-team">
+        <article class="section-card">
+          <h2>Roles / Team</h2>
+          <p>Ownership and bottlenecks for the active obligation.</p>
+          <div class="team-grid" id="teamGrid"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
