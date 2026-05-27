@@ -130,8 +130,6 @@ const appData = {
     daysInMonth: 31,
     firstWeekdayOffset: 1,
     events: {
-      3: [{ text: "Accounts prepared", status: "done" }],
-      8: [{ text: "General meeting held", status: "done" }],
       12: [{ text: "Minutes to sign", status: "waiting", route: "wizard" }],
       16: [{ text: "Certificate not started", status: "pending", route: "wizard" }],
       22: [{ text: "Registry filing blocked", status: "blocked", route: "wizard" }],
